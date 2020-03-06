@@ -1,6 +1,5 @@
 package environment;
 
-import javafx.geometry.Pos;
 
 public class Creature extends Entity {
 

@@ -3,6 +3,7 @@ package userInterface;
 import environment.World;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Ui extends JFrame implements Runnable {
 
@@ -12,17 +13,17 @@ public class Ui extends JFrame implements Runnable {
     private World world;
 
     public Ui(){
-        this.visual = new Visual();
         this.controlPanel = new ControlPanel();
-        this.world = new World();
+        this.world = new World(1,10);
+        this.visual = new Visual(world);
         initAll();
     }
 
     private void initAll() {
         panel = new PrincipalPanel(visual, controlPanel);
         panel.setBounds(this.getX(), this.getY(), this.getWidth(), this.getHeight());
-
-        add(panel);
+        panel.setBackground(Color.lightGray);
+        setContentPane(panel);
         setSize(1000, 800);
         setResizable(false);
         setVisible(true);

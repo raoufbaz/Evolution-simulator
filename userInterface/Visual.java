@@ -16,11 +16,6 @@ public class Visual extends JPanel {
     }
 
     public void paintComponent(Graphics g) {
-        int x = 0;
-        int y = 0;
-        int largeurX = this.getBounds().width / 10;
-        int hauteurY = this.getBounds().height / 10;
-
 
         g.setColor(Color.BLACK);
 
@@ -32,16 +27,31 @@ public class Visual extends JPanel {
 
         g2.setStroke(dashed);
 
+        g.setColor(Color.YELLOW);
+        for (int i = 0; i < world.getFoods().size() ; i++) {
+            int randomX = (int) (Math.random() * (getWidth() + 1));
+            int randomY = (int) (Math.random() * (getHeight() + 1));
+            world.getFoods().get(i).setPosition(new Position(randomX,randomY));
 
+            drawFood(g,world.getFoods().get(i), randomX, randomY);
+        }
+        g.setColor(Color.blue);
+        for (int i = 0; i < world.getCreatures().size() ; i++) {
+            drawCreature(g, world.getCreatures().get(i));
+        }
+    }
 
-        g.setColor(Color.GREEN);
+    public void drawFood(Graphics g, Food food, int x, int y) {
+        g.fillRect(x,y, 10, 10);
+    }
+    public void drawCreature(Graphics g, Creature creature) {
+        g.fillOval(creature.getPosition().getX(),creature.getPosition().getY(), 20, 20);
+        g.fillOval(creature.getPosition().getX()+4,creature.getPosition().getY()-8, 12, 12);
+        g.setColor(Color.white);
+        g.fillOval(creature.getPosition().getX()+7,creature.getPosition().getY()-5, 2, 2);
+        g.fillOval(creature.getPosition().getX()+11,creature.getPosition().getY()-5, 2, 2);
 
-        drawFood(g,world.getFoods().getFirst());
     }
 
 
-    public void drawFood(Graphics g, Food food) {
-        g.fillOval(50,50, 10, 10);
-
-    }
 }
