@@ -11,21 +11,24 @@ public class World {
    int numberOfCreatures;
    int numberOfFood;
 
-   World(int numberOfCreatures, int numberOfFood){
+   public World(int numberOfCreatures, int numberOfFood){
       this.numberOfCreatures = numberOfCreatures;
       this.numberOfFood = numberOfFood;
+
 
       initCreatures();
       initFood();
    }
 
    private void initCreatures(){
+      creatures = new LinkedList<>();
       for (int i = 0; i < numberOfCreatures ; i++) {
          creatures.add(new Creature());
       }
    }
    private void initFood(){
-      for (int i = 0; i < numberOfCreatures ; i++) {
+      foods = new LinkedList<>();
+      for (int i = 0; i < numberOfFood ; i++) {
          foods.add(new Food());
       }
    }
