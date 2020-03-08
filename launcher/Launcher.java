@@ -7,4 +7,15 @@ public class Launcher {
         Thread t = new Thread(new Ui());
         t.run();
     }
+
+
+    /** No mutations
+     *
+     * if fails to find food = death
+     * if finds 1 food = live
+     * if finds 2 food = reproduce
+     *
+     *
+     *
+     */
 }

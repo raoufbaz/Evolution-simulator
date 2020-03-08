@@ -1,17 +1,23 @@
 package environment;
 
 
+import java.util.LinkedList;
+
 public class Creature extends Entity {
 
+    private LinkedList<Food> foodGathered;
+
     Creature(){
-        this(10,1,5,new Position(100,100));
+        this(new Position(100,100));
     }
-    Creature(int energy, int speed, int size, Position position){
-        super(energy, speed, size, position);
+    Creature( Position position){
+        super(position);
+        foodGathered = new LinkedList<>();
     }
 
     @Override
     public void move() {
+
 
     }
 
@@ -24,4 +30,11 @@ public class Creature extends Entity {
     public Entity replicate() {
         return null;
     }
+
+    @Override
+    public Position findFood() {
+        return null;
+    }
+
+    
 }
